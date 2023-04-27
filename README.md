@@ -10,7 +10,7 @@
 
 
 ## Proyecto: Semáforo
-![image](https://user-images.githubusercontent.com/123908697/234972804-21821403-d918-44b0-885c-27f1792fcb08.png)
+![image](./img/semaforo.jpg)
 
 
 ## Descripción
