@@ -1,0 +1,77 @@
+// C++ code
+/*
+Tomas Blanco Rivas
+1J
+Dojo Numero Uno
+*/
+
+#define LED_VERDE1 8
+#define LED_VERDE2 9
+#define LED_AMARILLO1 10
+#define LED_AMARILLO2 11
+#define LED_ROJO1 12
+#define LED_ROJO2 13
+#define buzzer 7
+
+void setup()
+{ 
+  pinMode(LED_VERDE1, OUTPUT);
+  pinMode(LED_VERDE2, OUTPUT);
+  pinMode(LED_AMARILLO1, OUTPUT);
+  pinMode(LED_AMARILLO2, OUTPUT);
+  pinMode(LED_ROJO1, OUTPUT);
+  pinMode(LED_ROJO2, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop()
+{ 
+  PrendeYApagaLed(LED_VERDE1, LED_VERDE2, 4000); //LED VERDE
+ 
+  PrenderLed(LED_AMARILLO1, LED_AMARILLO2);
+  PrenderBuzzer(500, 1000, 2); //LED AMARILLO
+  delay(1000);
+  ApagarLed(LED_AMARILLO1, LED_AMARILLO2);
+
+  PrenderLed(LED_ROJO1, LED_ROJO2);
+  PrenderBuzzer(1000, 500, 30); // LED ROJO
+  ApagarLed(LED_ROJO1, LED_ROJO2);
+  
+  PrenderLed(LED_AMARILLO1, LED_AMARILLO2);
+  PrenderBuzzer(500, 1000, 2);
+  delay(1000);
+  ApagarLed(LED_AMARILLO1, LED_AMARILLO2);
+}
+
+void PrenderBuzzer(int frecuencia, int tiempo, 
+                   int cantidadDeRepeticiones)
+{
+   for (int i = 0; i < cantidadDeRepeticiones; i++) 
+  {
+    tone(7, frecuencia); 
+    delay(tiempo); 
+    noTone(7); 
+    delay(tiempo); 
+  }
+}
+
+void PrendeYApagaLed(int led1, int led2, int tiempo)
+{
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, HIGH);
+  delay(tiempo);
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+}
+
+void PrenderLed(int led1, int led2)
+{
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, HIGH);
+}
+
+void ApagarLed(int led1, int led2)
+{
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+}
