@@ -11,7 +11,7 @@ Dojo Numero Uno
 #define LED_AMARILLO2 11
 #define LED_ROJO1 12
 #define LED_ROJO2 13
-#define buzzer 7
+#define BUZZER 7
 
 void setup()
 { 
@@ -21,12 +21,12 @@ void setup()
   pinMode(LED_AMARILLO2, OUTPUT);
   pinMode(LED_ROJO1, OUTPUT);
   pinMode(LED_ROJO2, OUTPUT);
-  pinMode(buzzer, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
 }
 
 void loop()
 { 
-  PrendeYApagaLed(LED_VERDE1, LED_VERDE2, 4000); //LED VERDE
+  PrendeYApagaLed(LED_VERDE1, LED_VERDE2, 45000); //LED VERDE
  
   PrenderLed(LED_AMARILLO1, LED_AMARILLO2);
   PrenderBuzzer(500, 1000, 2); //LED AMARILLO
@@ -48,9 +48,9 @@ void PrenderBuzzer(int frecuencia, int tiempo,
 {
    for (int i = 0; i < cantidadDeRepeticiones; i++) 
   {
-    tone(7, frecuencia); 
+    tone(BUZZER, frecuencia); 
     delay(tiempo); 
-    noTone(7); 
+    noTone(BUZZER); 
     delay(tiempo); 
   }
 }
